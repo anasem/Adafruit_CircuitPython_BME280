@@ -62,8 +62,8 @@ _BME280_REGISTER_PRESSUREDATA = const(0xF7)
 _BME280_REGISTER_TEMPDATA = const(0xFA)
 _BME280_REGISTER_HUMIDDATA = const(0xFD)
 
-_BME280_PRESSURE_MIN_HPA = const(300)
-_BME280_PRESSURE_MAX_HPA = const(1100)
+_BME280_PRESSURE_MIN_HPA = const(200)
+_BME280_PRESSURE_MAX_HPA = const(1200)
 _BME280_HUMIDITY_MIN = const(0)
 _BME280_HUMIDITY_MAX = const(100)
 
@@ -124,9 +124,9 @@ class Adafruit_BME280:
         self._iir_filter = IIR_FILTER_DISABLE
         self._overscan_humidity = OVERSCAN_X1
         self._overscan_temperature = OVERSCAN_X1
-        self._overscan_pressure = OVERSCAN_X16
-        self._t_standby = STANDBY_TC_125
-        self._mode = MODE_SLEEP
+        self._overscan_pressure = OVERSCAN_X1
+        self._t_standby = STANDBY_TC_0_5
+        self._mode = MODE_NORMAL
         self._reset()
         self._read_coefficients()
         self._write_ctrl_meas()
